@@ -1,0 +1,16 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #f7f4ec;
+  --text: #1f2a37;
+  --brand: #1d7a85;
+  --accent: #f08a5d;
+  --auth-primary: #d62839;
+  --auth-primary-hover: #b11f2e;
+}
+
+/* .container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+ */

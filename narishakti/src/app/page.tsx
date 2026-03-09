@@ -171,7 +171,7 @@ export default function HomePage() {
         <section className="mx-auto mt-16 w-full rounded-sm bg-white px-4 py-12 md:px-6">
           <div className="mx-auto max-w-245 text-center">
             <h2 className="text-4xl font-semibold text-[#111c3a] md:text-4xl">Our Core Pillars</h2>
-            <p className="mt-1 text-sm text-[#5c6785] md:text-lg">
+            <p className="mt-4 text-sm text-[#5c6785] md:text-lg">
               Comprehensive support systems designed to help you thrive in every aspect of life.
             </p>
           </div>

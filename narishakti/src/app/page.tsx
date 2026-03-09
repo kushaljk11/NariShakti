@@ -243,7 +243,7 @@ export default function HomePage() {
 
         <section className="w-full bg-white px-4 py-12 md:px-8">
           <div className="mx-auto w-full max-w-345 py-6">
-            <h2 className="text-center text-5xl font-bold text-[#111c3a] md:text-3xl">How It Works</h2>
+            <h2 className="text-center text-5xl font-semibold text-[#111c3a] md:text-3xl">How It Works</h2>
             <p className="text-center text-lg text-[#5c6785] md:text-lg">
               A clear pathway for every member of our community.
             </p>
@@ -252,12 +252,12 @@ export default function HomePage() {
               {howItWorksSteps.map((step) => (
                 <article key={step.title} className="mx-auto flex max-w-115 flex-col items-center text-center">
                   <span
-                    className={`grid h-10 w-10 place-items-center rounded-full text-lg font-bold text-white ${step.badgeClass}`}
+                    className={`grid h-10 w-10 place-items-center rounded-full text-lg font-semibold text-white ${step.badgeClass}`}
                   >
                     {step.number}
                   </span>
-                  <h3 className="mt-5 text-3xl font-bold text-[#111c3a]">{step.title}</h3>
-                  <p className="mt-3 text-lg leading-relaxed text-[#5c6785]">{step.description}</p>
+                  <h3 className="mt-5 text-3xl font-semibold text-[#111c3a]">{step.title}</h3>
+                  <p className="mt-3 text-ls leading-relaxed text-[#5c6785]">{step.description}</p>
                 </article>
               ))}
             </div>

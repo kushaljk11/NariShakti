@@ -1,6 +1,10 @@
+"use client";
+
 import Link from "next/link";
-import Sidebar, { SidebarMobileNav } from "./Sidebar";
+import { useState } from "react";
+import Sidebar from "./Sidebar";
 import Topbar from "./Topbar";
+import { Footer } from "@/components/layout/Footer";
 import {
   FaBook,
   FaCalendarAlt,
@@ -46,18 +50,31 @@ const recommendedCourses = [
 ];
 
 export default function LearnerDashboardPage() {
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
   return (
-    <div className="min-h-screen bg-[#f3f3f6] text-slate-900">
-      <div className="mx-auto flex max-w-375">
-        <Sidebar activeLabel="Dashboard" />
+    <div className="min-h-screen overflow-x-hidden bg-[#f3f3f6] text-slate-900">
+      {isSidebarOpen ? (
+        <button
+          type="button"
+          onClick={() => setIsSidebarOpen(false)}
+          aria-label="Close sidebar overlay"
+          className="fixed inset-0 z-30 bg-black/35 lg:hidden"
+        />
+      ) : null}
 
-        <main className="flex-1 p-4 sm:p-6 lg:p-8">
-          <Topbar />
+      <div className="mx-auto flex w-full max-w-375">
+        <Sidebar
+          activeLabel="Dashboard"
+          mobileOpen={isSidebarOpen}
+          onClose={() => setIsSidebarOpen(false)}
+        />
 
-          <SidebarMobileNav activeLabel="Dashboard" />
+        <main className="min-w-0 flex-1 p-3 sm:p-6 lg:p-8">
+          <Topbar onMenuClick={() => setIsSidebarOpen(true)} />
 
           <section className="mt-2">
-            <h1 className="text-4xl font-semibold text-slate-900">Namaste, Kushu!</h1>
+            <h1 className="text-3xl font-semibold text-slate-900 sm:text-4xl">Namaste, Kushu!</h1>
             <p className="mt-1 text-slate-500">Ready to continue your journey today?</p>
           </section>
 
@@ -167,6 +184,7 @@ export default function LearnerDashboardPage() {
           </section>
         </main>
       </div>
+      <Footer />
     </div>
   );
 }

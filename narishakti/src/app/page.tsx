@@ -1,8 +1,15 @@
 import Image from "next/image";
-import { FaBriefcase, FaCircleCheck, FaLightbulb, FaShieldHalved, FaUsers } from "react-icons/fa6";
+import {
+  FaBriefcase,
+  FaCircleCheck,
+  FaLightbulb,
+  FaShieldHalved,
+  FaUsers,
+} from "react-icons/fa6";
 import { Navbar } from "@/components/layout/Navbar";
 import heroImage from "@/uploads/hero.jpg";
 import loginImage from "@/uploads/login.webp";
+import { Footer } from "@/components/layout/Footer";
 
 const howItWorksSteps = [
   {
@@ -32,7 +39,8 @@ const featuredCourses = [
   {
     category: "TECHNOLOGY",
     title: "Digital Literacy & IT",
-    description: "Master essential computer skills and modern digital marketing techniques.",
+    description:
+      "Master essential computer skills and modern digital marketing techniques.",
     footnote: "Free for members",
     weeks: "12 Weeks",
     image: heroImage,
@@ -42,7 +50,8 @@ const featuredCourses = [
   {
     category: "ENTREPRENEURSHIP",
     title: "Advanced Tailoring",
-    description: "Learn professional stitching and design to start your own fashion business.",
+    description:
+      "Learn professional stitching and design to start your own fashion business.",
     footnote: "Scholarships Avail.",
     weeks: "8 Weeks",
     image: loginImage,
@@ -52,7 +61,8 @@ const featuredCourses = [
   {
     category: "MANAGEMENT",
     title: "Micro-Business Management",
-    description: "Financial planning and operations for small-scale entrepreneurs.",
+    description:
+      "Financial planning and operations for small-scale entrepreneurs.",
     footnote: "Certified",
     weeks: "6 Weeks",
     image: heroImage,
@@ -123,14 +133,21 @@ export default function HomePage() {
             </span>
 
             <div className="space-y-1">
-              <h1 className="text-5xl font-semibold leading-[1.1] text-[#111c3a] md:text-7xl">NariShakti:</h1>
-              <h2 className="text-5xl font-semibold leading-[1.1] text-(--primary) md:text-7xl">Empowering Her</h2>
-              <h2 className="text-5xl font-semibold leading-[1.1] text-(--primary) md:text-7xl">Potential</h2>
+              <h1 className="text-5xl font-semibold leading-[1.1] text-[#111c3a] md:text-7xl">
+                NariShakti:
+              </h1>
+              <h2 className="text-5xl font-semibold leading-[1.1] text-(--primary) md:text-7xl">
+                Empowering Her
+              </h2>
+              <h2 className="text-5xl font-semibold leading-[1.1] text-(--primary) md:text-7xl">
+                Potential
+              </h2>
             </div>
 
             <p className="max-w-155 text-lg leading-relaxed text-[#5c6785] md:text-lg">
-              Join Nepal&apos;s premier platform for skills, mentorship, and opportunities. We bridge the gap
-              between dreams and reality for every woman.
+              Join Nepal&apos;s premier platform for skills, mentorship, and
+              opportunities. We bridge the gap between dreams and reality for
+              every woman.
             </p>
 
             <div className="flex flex-wrap items-center gap-4 pt-2">
@@ -170,9 +187,12 @@ export default function HomePage() {
         {/* Core pillars */}
         <section className="mx-auto mt-16 w-full rounded-sm bg-white px-4 py-12 md:px-6">
           <div className="mx-auto max-w-245 text-center">
-            <h2 className="text-4xl font-semibold text-[#111c3a] md:text-4xl">Our Core Pillars</h2>
+            <h2 className="text-4xl font-semibold text-[#111c3a] md:text-4xl">
+              Our Core Pillars
+            </h2>
             <p className="mt-4 text-sm text-[#5c6785] md:text-lg">
-              Comprehensive support systems designed to help you thrive in every aspect of life.
+              Comprehensive support systems designed to help you thrive in every
+              aspect of life.
             </p>
           </div>
 
@@ -181,9 +201,12 @@ export default function HomePage() {
               <span className="mx-auto grid h-14 w-14 place-items-center rounded-full bg-(--primary) text-white">
                 <FaLightbulb />
               </span>
-              <h3 className="mt-5 text-xl font-semibold text-[#111c3a]">Skills Training</h3>
+              <h3 className="mt-5 text-xl font-semibold text-[#111c3a]">
+                Skills Training
+              </h3>
               <p className="mt-3 text-sm leading-relaxed text-[#5c6785]">
-                Practical workshops ranging from digital literacy to traditional crafts.
+                Practical workshops ranging from digital literacy to traditional
+                crafts.
               </p>
             </article>
 
@@ -191,9 +214,12 @@ export default function HomePage() {
               <span className="mx-auto grid h-14 w-14 place-items-center rounded-full bg-(--primary) text-white">
                 <FaBriefcase />
               </span>
-              <h3 className="mt-5 text-xl font-semibold text-[#111c3a]">Jobs & Opportunities</h3>
+              <h3 className="mt-5 text-xl font-semibold text-[#111c3a]">
+                Jobs & Opportunities
+              </h3>
               <p className="mt-3 text-sm leading-relaxed text-[#5c6785]">
-                Direct connections with employers looking for talented female professionals.
+                Direct connections with employers looking for talented female
+                professionals.
               </p>
             </article>
 
@@ -201,9 +227,12 @@ export default function HomePage() {
               <span className="mx-auto grid h-14 w-14 place-items-center rounded-full bg-(--primary) text-white">
                 <FaShieldHalved />
               </span>
-              <h3 className="mt-5 text-xl font-semibold text-[#111c3a]">Health & Safety</h3>
+              <h3 className="mt-5 text-xl font-semibold text-[#111c3a]">
+                Health & Safety
+              </h3>
               <p className="mt-3 text-sm leading-relaxed text-[#5c6785]">
-                Resources for wellness, mental health, and personal safety awareness.
+                Resources for wellness, mental health, and personal safety
+                awareness.
               </p>
             </article>
 
@@ -211,9 +240,12 @@ export default function HomePage() {
               <span className="mx-auto grid h-14 w-14 place-items-center rounded-full bg-(--primary) text-white">
                 <FaUsers />
               </span>
-              <h3 className="mt-5 text-xl font-semibold text-[#111c3a]">Mentorship</h3>
+              <h3 className="mt-5 text-xl font-semibold text-[#111c3a]">
+                Mentorship
+              </h3>
               <p className="mt-3 text-sm leading-relaxed text-[#5c6785]">
-                Guidance from successful leaders across various industries in Nepal.
+                Guidance from successful leaders across various industries in
+                Nepal.
               </p>
             </article>
           </div>
@@ -223,41 +255,66 @@ export default function HomePage() {
         <section className="w-full bg-[#f5f4f6] px-4 py-10 md:px-8">
           <div className="mx-auto grid w-full max-w-345 grid-cols-2 gap-y-8 text-center md:grid-cols-4">
             <div>
-              <p className="text-3xl font-bold text-(--primary) md:text-3xl">15k+</p>
-              <p className="mt-2 text-xl text-[#42506b] md:text-xl">Women Empowered</p>
+              <p className="text-3xl font-bold text-(--primary) md:text-3xl">
+                15k+
+              </p>
+              <p className="mt-2 text-xl text-[#42506b] md:text-xl">
+                Women Empowered
+              </p>
             </div>
             <div>
-              <p className="text-3xl font-bold text-[#3c7ea9] md:text-3xl">120+</p>
-              <p className="mt-2 text-xl text-[#42506b] md:text-xl">Courses Completed</p>
+              <p className="text-3xl font-bold text-[#3c7ea9] md:text-3xl">
+                120+
+              </p>
+              <p className="mt-2 text-xl text-[#42506b] md:text-xl">
+                Courses Completed
+              </p>
             </div>
             <div>
-              <p className="text-3xl font-bold text-(--primary) md:text-3xl">5k+</p>
-              <p className="mt-2 text-xl text-[#42506b] md:text-xl">Jobs Found</p>
+              <p className="text-3xl font-bold text-(--primary) md:text-3xl">
+                5k+
+              </p>
+              <p className="mt-2 text-xl text-[#42506b] md:text-xl">
+                Jobs Found
+              </p>
             </div>
             <div>
-              <p className="text-3xl font-bold text-[#3c7ea9] md:text-3xl">50+</p>
-              <p className="mt-2 text-xl text-[#42506b] md:text-xl">Partner NGOs</p>
+              <p className="text-3xl font-bold text-[#3c7ea9] md:text-3xl">
+                50+
+              </p>
+              <p className="mt-2 text-xl text-[#42506b] md:text-xl">
+                Partner NGOs
+              </p>
             </div>
           </div>
         </section>
 
         <section className="w-full bg-white px-4 py-12 md:px-8">
           <div className="mx-auto w-full max-w-345 py-6">
-            <h2 className="text-center text-5xl font-semibold text-[#111c3a] md:text-3xl">How It Works</h2>
+            <h2 className="text-center text-5xl font-semibold text-[#111c3a] md:text-3xl">
+              How It Works
+            </h2>
             <p className="text-center text-lg text-[#5c6785] md:text-lg">
               A clear pathway for every member of our community.
             </p>
 
             <div className="mt-10 grid gap-8 md:grid-cols-3">
               {howItWorksSteps.map((step) => (
-                <article key={step.title} className="mx-auto flex max-w-115 flex-col items-center text-center">
+                <article
+                  key={step.title}
+                  className="mx-auto flex max-w-115 flex-col items-center text-center"
+                >
                   <span
                     className={`grid h-10 w-10 place-items-center rounded-full text-lg font-semibold text-white ${step.badgeClass}`}
                   >
                     {step.number}
                   </span>
-                  <h3 className="mt-5 text-3xl font-semibold text-[#111c3a]">{step.title}</h3>
-                  <p className="mt-3 text-ls leading-relaxed text-[#5c6785]">{step.description}</p>
+                  <h3 className="mt-5 text-3xl font-semibold text-[#111c3a]">
+                    {step.title}
+                  </h3>
+                  <p className="mt-3 text-ls leading-relaxed text-[#5c6785]">
+                    {step.description}
+                  </p>
                 </article>
               ))}
             </div>
@@ -269,25 +326,49 @@ export default function HomePage() {
           <div className="mx-auto w-full max-w-345">
             <div className="flex items-end justify-between gap-4">
               <div>
-                <h2 className="text-4xl font-semibold text-[#111c3a] md:text-4xl">Upcoming Events</h2>
-                <p className="mt-2 text-sm text-[#5c6785] md:text-base">Join our live webinars and interactive workshops.</p>
+                <h2 className="text-4xl font-semibold text-[#111c3a] md:text-4xl">
+                  Upcoming Events
+                </h2>
+                <p className="mt-2 text-sm text-[#5c6785] md:text-base">
+                  Join our live webinars and interactive workshops.
+                </p>
               </div>
-              <a href="#" className="text-sm font-semibold text-(--primary) no-underline">
+              <a
+                href="#"
+                className="text-sm font-semibold text-(--primary) no-underline"
+              >
                 See Calendar
               </a>
             </div>
 
             <div className="mt-6 grid gap-4 md:grid-cols-2">
               {upcomingEvents.map((event) => (
-                <article key={event.title} className="flex items-center gap-4 rounded-xl bg-white border border-[#e5e7eb] p-4">
-                  <div className={`grid h-14 w-14 place-items-center rounded-2xl text-white ${event.dayClass}`}>
-                    <span className="text-2xl font-semibold leading-none">{event.day}</span>
-                    <span className="text-[10px] font-semibold leading-none">{event.month}</span>
+                <article
+                  key={event.title}
+                  className="flex items-center gap-4 rounded-xl bg-white border border-[#e5e7eb] p-4"
+                >
+                  <div
+                    className={`grid h-14 w-14 place-items-center rounded-2xl text-white ${event.dayClass}`}
+                  >
+                    <span className="text-2xl font-semibold leading-none">
+                      {event.day}
+                    </span>
+                    <span className="text-[10px] font-semibold leading-none">
+                      {event.month}
+                    </span>
                   </div>
                   <div>
-                    <h3 className="text-xl font-semibold text-[#111c3a]">{event.title}</h3>
-                    <p className="mt-1 text-sm text-[#5c6785]">{event.description}</p>
-                    <p className={`mt-1 text-xs font-semibold ${event.metaClass}`}>{event.meta}</p>
+                    <h3 className="text-xl font-semibold text-[#111c3a]">
+                      {event.title}
+                    </h3>
+                    <p className="mt-1 text-sm text-[#5c6785]">
+                      {event.description}
+                    </p>
+                    <p
+                      className={`mt-1 text-xs font-semibold ${event.metaClass}`}
+                    >
+                      {event.meta}
+                    </p>
                   </div>
                 </article>
               ))}
@@ -300,28 +381,50 @@ export default function HomePage() {
           <div className="mx-auto w-full max-w-345">
             <div className="flex items-end justify-between gap-4">
               <div>
-                <h2 className="text-4xl font-semibold text-[#111c3a]  md:text-4xl">Featured Courses</h2>
+                <h2 className="text-4xl font-semibold text-[#111c3a]  md:text-4xl">
+                  Featured Courses
+                </h2>
                 <p className="mt-2 text-sm text-[#5c6785] md:text-base">
-                  Specially curated programs to build your professional foundation.
+                  Specially curated programs to build your professional
+                  foundation.
                 </p>
               </div>
-              <a href="#" className="text-sm font-semibold text-(--primary) no-underline">
+              <a
+                href="#"
+                className="text-sm font-semibold text-(--primary) no-underline"
+              >
                 View All Courses -&gt;
               </a>
             </div>
 
             <div className="mt-6 grid gap-5 md:grid-cols-3">
               {featuredCourses.map((course) => (
-                <article key={course.title} className="overflow-hidden rounded-xl border border-[#e5e7eb] bg-white shadow-sm">
+                <article
+                  key={course.title}
+                  className="overflow-hidden rounded-xl border border-[#e5e7eb] bg-white shadow-sm"
+                >
                   <div className="relative h-40">
-                    <Image src={course.image} alt={course.imageAlt} fill className={`object-cover ${course.imagePosition}`} />
+                    <Image
+                      src={course.image}
+                      alt={course.imageAlt}
+                      fill
+                      className={`object-cover ${course.imagePosition}`}
+                    />
                   </div>
                   <div className="p-4">
-                    <p className="text-xs font-semibold tracking-wide text-[#7a859f]">{course.category}</p>
-                    <h3 className="mt-2 text-2xl font-bold text-[#111c3a]">{course.title}</h3>
-                    <p className="mt-2 text-sm leading-relaxed text-[#5c6785]">{course.description}</p>
+                    <p className="text-xs font-semibold tracking-wide text-[#7a859f]">
+                      {course.category}
+                    </p>
+                    <h3 className="mt-2 text-2xl font-bold text-[#111c3a]">
+                      {course.title}
+                    </h3>
+                    <p className="mt-2 text-sm leading-relaxed text-[#5c6785]">
+                      {course.description}
+                    </p>
                     <div className="mt-4 flex items-center justify-between text-sm">
-                      <span className="font-semibold text-(--primary)">{course.footnote}</span>
+                      <span className="font-semibold text-(--primary)">
+                        {course.footnote}
+                      </span>
                       <span className="text-[#7a859f]">{course.weeks}</span>
                     </div>
                   </div>
@@ -331,15 +434,19 @@ export default function HomePage() {
           </div>
         </section>
 
-
-        {/* Voices of Success Section */}   
+        {/* Voices of Success Section */}
         <section className="w-full bg-(--primary) px-4 py-14 md:px-8">
           <div className="mx-auto w-full max-w-345">
-            <h2 className="text-center text-4xl font-bold text-white md:text-5xl">Voices of Success</h2>
+            <h2 className="text-center text-4xl font-bold text-white md:text-5xl">
+              Voices of Success
+            </h2>
 
             <div className="mt-8 grid gap-4 md:grid-cols-3">
               {testimonials.map((item) => (
-                <article key={item.name} className="rounded-xl bg-[#f24b5d] p-5 text-white">
+                <article
+                  key={item.name}
+                  className="rounded-xl bg-[#f24b5d] p-5 text-white"
+                >
                   <p className="text-lg tracking-wide text-[#ffe07d]">★★★★★</p>
                   <p className="mt-3 text-sm leading-relaxed">{item.quote}</p>
                   <div className="mt-4 border-t border-white/20 pt-3">
@@ -355,17 +462,22 @@ export default function HomePage() {
         {/* Supporting Organizations Section */}
         <section className="w-full bg-[#f5f4f6] px-4 py-12 md:px-8">
           <div className="mx-auto w-full max-w-345 text-center">
-            <h2 className="text-3xl font-semibold text-[#8a97b2] md:text-4xl">Supported by Leading Organizations</h2>
+            <h2 className="text-3xl font-semibold text-[#8a97b2] md:text-4xl">
+              Supported by Leading Organizations
+            </h2>
             <div className="mt-8 grid grid-cols-2 gap-4 text-center md:grid-cols-5">
               {supportingOrganizations.map((organization) => (
-                <p key={organization} className="text-lg font-semibold text-[#7a859f] md:text-xl">
+                <p
+                  key={organization}
+                  className="text-lg font-semibold text-[#7a859f] md:text-xl"
+                >
                   {organization}
                 </p>
               ))}
             </div>
           </div>
         </section>
-
+        <Footer />
       </main>
     </>
   );

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { AuthProvider } from "@/context/AuthContext";
-import { Footer } from "@/components/layout/Footer";
+// import { Footer } from "@/components/layout/Footer";
 
 export const metadata: Metadata = {
   title: "NariShakti",
@@ -18,7 +18,7 @@ export default function RootLayout({
       <body>
         <AuthProvider>
           <main>{children}</main>
-          <Footer />
+          {/* <Footer /> */}
         </AuthProvider>
       </body>
     </html>

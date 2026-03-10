@@ -1,5 +1,8 @@
-import Sidebar, { SidebarMobileNav } from "../Sidebar";
+"use client";
+
+import Sidebar from "../Sidebar";
 import Topbar from "../Topbar";
+import { useState } from "react";
 import { FaCalendarAlt, FaClock, FaFilter, FaUserPlus } from "react-icons/fa";
 
 type Mentor = {
@@ -81,17 +84,30 @@ const upcomingSessions = [
 ];
 
 export default function LearnerMentorPage() {
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
   return (
-    <div className="min-h-screen bg-[#f3f3f6] text-slate-900">
-      <div className="mx-auto flex max-w-375">
-        <Sidebar activeLabel="Mentorship" />
+    <div className="min-h-screen overflow-x-hidden bg-[#f3f3f6] text-slate-900">
+      {isSidebarOpen ? (
+        <button
+          type="button"
+          onClick={() => setIsSidebarOpen(false)}
+          aria-label="Close sidebar overlay"
+          className="fixed inset-0 z-30 bg-black/35 lg:hidden"
+        />
+      ) : null}
 
-        <main className="flex-1 p-4 sm:p-6 lg:p-8">
-          <Topbar />
-          <SidebarMobileNav activeLabel="Mentorship" />
+      <div className="mx-auto flex w-full max-w-375">
+        <Sidebar
+          activeLabel="Mentorship"
+          mobileOpen={isSidebarOpen}
+          onClose={() => setIsSidebarOpen(false)}
+        />
 
+        <main className="min-w-0 flex-1 p-3 sm:p-6 lg:p-8">
+          <Topbar onMenuClick={() => setIsSidebarOpen(true)} />
           <section className="mt-2">
-            <h1 className="text-4xl font-semibold text-slate-900">Mentorship Hub</h1>
+            <h1 className="text-3xl font-semibold text-slate-900 sm:text-4xl">Mentorship Hub</h1>
             <p className="mt-2 max-w-3xl text-slate-500">
               Connect with industry experts, get career guidance, and accelerate your learning journey with
               personalized 1:1 mentorship.
@@ -114,7 +130,7 @@ export default function LearnerMentorPage() {
 
           <section className="mt-6">
             <div className="mb-4 flex items-center justify-between">
-              <h2 className="text-4xl font-semibold text-slate-900">Recommended for You</h2>
+              <h2 className="text-2xl font-semibold text-slate-900 sm:text-3xl">Recommended for You</h2>
               <button className="cursor-pointer text-sm font-semibold text-[#e53a4e] hover:text-[#cb2639]">
                 View all filters <FaFilter className="ml-1 inline h-3 w-3" />
               </button>
@@ -154,7 +170,7 @@ export default function LearnerMentorPage() {
           </section>
 
           <section className="mt-7">
-            <h2 className="text-4xl font-semibold text-slate-900">Recent Mentorship Requests</h2>
+            <h2 className="text-2xl font-semibold text-slate-900 sm:text-3xl">Recent Mentorship Requests</h2>
 
             <div className="mt-4 overflow-x-auto rounded-3xl border border-slate-200 bg-white">
               <table className="w-full min-w-160 text-left text-sm">
@@ -204,7 +220,7 @@ export default function LearnerMentorPage() {
 
           <section className="mt-7">
             <div className="mb-4 flex items-center justify-between">
-              <h2 className="text-4xl font-semibold text-slate-900">Upcoming Sessions</h2>
+              <h2 className="text-2xl font-semibold text-slate-900 sm:text-3xl">Upcoming Sessions</h2>
               <div className="rounded-full bg-slate-100 p-1 text-xs font-semibold">
                 <button className="cursor-pointer rounded-full bg-white px-3 py-1 text-slate-700">List</button>
                 <button className="cursor-pointer rounded-full px-3 py-1 text-slate-500">Calendar</button>

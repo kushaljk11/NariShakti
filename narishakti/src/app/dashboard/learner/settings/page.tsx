@@ -1,5 +1,8 @@
-import Sidebar, { SidebarMobileNav } from "../Sidebar";
+"use client";
+
+import Sidebar from "../Sidebar";
 import Topbar from "../Topbar";
+import { useState } from "react";
 import {
   FaCamera,
   FaChevronDown,
@@ -14,19 +17,33 @@ import {
 import type { ReactNode } from "react";
 
 export default function LearnerSettingsPage() {
-  return (
-    <div className="min-h-screen bg-[#f3f3f6] text-slate-900">
-      <div className="mx-auto flex max-w-375">
-        <Sidebar activeLabel="Settings" />
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
-        <main className="flex-1 p-4 sm:p-6 lg:p-8">
-          <Topbar />
-          <SidebarMobileNav activeLabel="Settings" />
+  return (
+    <div className="min-h-screen overflow-x-hidden bg-[#f3f3f6] text-slate-900">
+      {isSidebarOpen ? (
+        <button
+          type="button"
+          onClick={() => setIsSidebarOpen(false)}
+          aria-label="Close sidebar overlay"
+          className="fixed inset-0 z-30 bg-black/35 lg:hidden"
+        />
+      ) : null}
+
+      <div className="mx-auto flex w-full max-w-375">
+        <Sidebar
+          activeLabel="Settings"
+          mobileOpen={isSidebarOpen}
+          onClose={() => setIsSidebarOpen(false)}
+        />
+
+        <main className="min-w-0 flex-1 p-3 sm:p-6 lg:p-8">
+          <Topbar onMenuClick={() => setIsSidebarOpen(true)} />
 
           <section className="mt-2">
             <div className="flex flex-wrap items-start justify-between gap-3">
               <div>
-                <h1 className="text-4xl font-semibold text-slate-900">My Profile</h1>
+                <h1 className="text-3xl font-semibold text-slate-900 sm:text-4xl">My Profile</h1>
                 <p className="mt-1 text-slate-500">Update your details and how others see you on the platform.</p>
               </div>
               <div className="flex items-center gap-2">
@@ -51,7 +68,7 @@ export default function LearnerSettingsPage() {
                 </div>
 
                 <div>
-                  <h2 className="text-3xl font-semibold text-slate-900">Rashu K</h2>
+                  <h2 className="text-2xl font-semibold text-slate-900 sm:text-3xl">Rashu K</h2>
                   <p className="mt-1 text-slate-500">Learner since October 2023 • 12 Courses Completed</p>
                   <div className="mt-3 flex flex-wrap gap-2">
                     <span className="rounded-full bg-cyan-50 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-cyan-700">

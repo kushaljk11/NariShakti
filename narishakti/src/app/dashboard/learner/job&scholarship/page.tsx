@@ -1,5 +1,8 @@
-import Sidebar, { SidebarMobileNav } from "../Sidebar";
+"use client";
+
+import Sidebar from "../Sidebar";
 import Topbar from "../Topbar";
+import { useState } from "react";
 import {
 	FaBookmark,
 	FaBriefcase,
@@ -63,16 +66,29 @@ const applicationHistory = [
 ];
 
 export default function LearnerJobsScholarshipPage() {
+	const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 	const selectedJob = jobs[0];
 
 	return (
-		<div className="min-h-screen bg-[#f3f3f6] text-slate-900">
-			<div className="mx-auto flex max-w-375">
-				<Sidebar activeLabel="Jobs & Scholarships" />
+		<div className="min-h-screen overflow-x-hidden bg-[#f3f3f6] text-slate-900">
+			{isSidebarOpen ? (
+				<button
+					type="button"
+					onClick={() => setIsSidebarOpen(false)}
+					aria-label="Close sidebar overlay"
+					className="fixed inset-0 z-30 bg-black/35 lg:hidden"
+				/>
+			) : null}
 
-				<main className="flex-1 p-4 sm:p-6 lg:p-8">
-					<Topbar />
-					<SidebarMobileNav activeLabel="Jobs & Scholarships" />
+			<div className="mx-auto flex w-full max-w-375">
+				<Sidebar
+					activeLabel="Jobs & Scholarships"
+					mobileOpen={isSidebarOpen}
+					onClose={() => setIsSidebarOpen(false)}
+				/>
+
+				<main className="min-w-0 flex-1 p-3 sm:p-6 lg:p-8">
+					<Topbar onMenuClick={() => setIsSidebarOpen(true)} />
 
 					<section className="mt-6 grid gap-5 xl:grid-cols-[0.95fr_1.95fr]">
 						<aside className="space-y-4">
@@ -138,12 +154,12 @@ export default function LearnerJobsScholarshipPage() {
 							<article className="overflow-hidden rounded-3xl border border-slate-200 bg-white">
 								<div className="h-24 bg-linear-to-r from-rose-100 via-rose-50 to-transparent" />
 								<div className="p-5">
-									<div className="flex items-start justify-between gap-3">
+									<div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
 										<div>
-											<h1 className="text-4xl font-semibold text-slate-900">{selectedJob.title}</h1>
+											<h1 className="text-2xl font-semibold text-slate-900 sm:text-3xl">{selectedJob.title}</h1>
 											<p className="mt-1 text-[#e53a4e]">TechNova Systems • Pune (Hybrid) • Full-time</p>
 										</div>
-										<div className="flex items-center gap-2">
+										<div className="flex items-center gap-2 sm:self-start">
 											<button className="cursor-pointer rounded-full border border-slate-300 p-2 text-slate-500 hover:bg-slate-100">
 												<FaBookmark className="h-3.5 w-3.5" />
 											</button>

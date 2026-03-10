@@ -1,5 +1,8 @@
-import Sidebar, { SidebarMobileNav } from "../Sidebar";
+"use client";
+
+import Sidebar from "../Sidebar";
 import Topbar from "../Topbar";
+import { useState } from "react";
 import {
 	FaBalanceScale,
 	FaBookMedical,
@@ -46,7 +49,7 @@ const cards: ResourceCard[] = [
 		title: "Know Your Rights",
 		description:
 			"Simplified legal information regarding harassment, workplace equality, and personal protection laws.",
-		cta: "Legal Info",
+		cta: "Read Rights Guide",
 		icon: FaBalanceScale,
 	},
 	{
@@ -66,18 +69,32 @@ const cards: ResourceCard[] = [
 ];
 
 export default function LearnerHealthSafetyPage() {
-	return (
-		<div className="min-h-screen bg-[#f3f3f6] text-slate-900">
-			<div className="mx-auto flex max-w-375">
-				<Sidebar activeLabel="Health Resources" />
+	const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
-				<main className="flex-1 p-4 sm:p-6 lg:p-8">
-					<Topbar />
-					<SidebarMobileNav activeLabel="Health Resources" />
+	return (
+		<div className="min-h-screen overflow-x-hidden bg-[#f3f3f6] text-slate-900">
+			{isSidebarOpen ? (
+				<button
+					type="button"
+					onClick={() => setIsSidebarOpen(false)}
+					aria-label="Close sidebar overlay"
+					className="fixed inset-0 z-30 bg-black/35 lg:hidden"
+				/>
+			) : null}
+
+			<div className="mx-auto flex w-full max-w-375">
+				<Sidebar
+					activeLabel="Health Resources"
+					mobileOpen={isSidebarOpen}
+					onClose={() => setIsSidebarOpen(false)}
+				/>
+
+				<main className="min-w-0 flex-1 p-3 sm:p-6 lg:p-8">
+					<Topbar onMenuClick={() => setIsSidebarOpen(true)} />
 
 					<section className="mt-6">
 						<p className="text-xs font-bold uppercase tracking-[0.16em] text-[#e53a4e]">Empowerment Through Knowledge</p>
-						<h1 className="mt-2 text-5xl font-semibold text-slate-900">Health & Safety Resources</h1>
+						<h1 className="mt-2 text-3xl font-semibold text-slate-900 sm:text-4xl lg:text-5xl">Health & Safety Resources</h1>
 						<p className="mt-3 max-w-3xl text-slate-500">
 							Compassionate guides and vital tools designed to prioritize your well-being. Whether you need immediate
 							help or long-term support, we are here.
@@ -144,7 +161,7 @@ export default function LearnerHealthSafetyPage() {
 					</section>
 
 					<section className="mt-10 border-t border-slate-200 pt-8 text-center">
-						<h2 className="text-4xl font-semibold text-slate-900">Can&apos;t find what you&apos;re looking for?</h2>
+						<h2 className="text-2xl font-semibold text-slate-900 sm:text-3xl lg:text-4xl">Can&apos;t find what you&apos;re looking for?</h2>
 						<p className="mx-auto mt-2 max-w-2xl text-sm text-slate-500">
 							Our database is updated weekly. Reach out to our resource team or use the chat assistant for specific
 							inquiries.

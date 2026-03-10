@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { FormEvent, useState } from "react";
 import { loginRequest } from "@/features/auth/auth.client";
 import loginImage from "@/uploads/login.webp";
@@ -13,6 +14,7 @@ type LoginResult = {
 };
 
 export function LoginForm() {
+  const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -29,6 +31,15 @@ export function LoginForm() {
     try {
       const response = await loginRequest<LoginResult>({ email, password });
       setMessage(`Welcome back ${response.user.email} (${response.user.role}).`);
+
+      const roleDashboardPath: Record<LoginResult["role"], string> = {
+        learner: "/dashboard/learner",
+        mentor: "/dashboard/mentor",
+        admin: "/dashboard/admin",
+        organization: "/dashboard/organization",
+      };
+
+      router.push(roleDashboardPath[response.user.role]);
     } catch (submitError) {
       setError(submitError instanceof Error ? submitError.message : "Could not login");
     } finally {

@@ -5,16 +5,17 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { FormEvent, useState } from "react";
 import { loginRequest } from "@/features/auth/auth.client";
+import { useAuth } from "@/hooks/useAuth";
+import type { User } from "@/types/user";
 import loginImage from "@/uploads/login.webp";
 import { FaEnvelope, FaEye, FaEyeSlash, FaLock } from "react-icons/fa";
 
-type LoginResult = {
-  email: string;
-  role: "learner" | "mentor" | "admin" | "organization";
-};
+const AUTH_TOKEN_STORAGE_KEY = "narishakti_token";
+type LoginResult = User;
 
 export function LoginForm() {
   const router = useRouter();
+  const { setUser } = useAuth();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -30,7 +31,9 @@ export function LoginForm() {
 
     try {
       const response = await loginRequest<LoginResult>({ email, password });
-      setMessage(`Welcome back ${response.user.email} (${response.user.role}).`);
+      setUser(response.user);
+      window.localStorage.setItem(AUTH_TOKEN_STORAGE_KEY, response.token);
+      setMessage(`Welcome back ${response.user.name} (${response.user.role}).`);
 
       const roleDashboardPath: Record<LoginResult["role"], string> = {
         learner: "/dashboard/learner",

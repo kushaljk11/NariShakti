@@ -50,6 +50,21 @@ function toSafeUser(doc: {
   };
 }
 
+export async function getSafeUserByEmail(email: string) {
+  if (!email) {
+    throw new Error("Email is required");
+  }
+
+  await connectDb();
+
+  const user = await UserModel.findOne({ email: email.toLowerCase() });
+  if (!user) {
+    throw new Error("User not found");
+  }
+
+  return toSafeUser(user);
+}
+
 export async function signupUser(input: SignupInput) {
   const name = input.name?.trim();
   const email = input.email?.trim().toLowerCase();

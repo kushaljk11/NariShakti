@@ -1,10 +1,12 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Sidebar from "./Sidebar";
 import Topbar from "./Topbar";
 import { Footer } from "@/components/layout/Footer";
+import { useAuth } from "@/hooks/useAuth";
+import type { User } from "@/types/user";
 import {
   FaBook,
   FaCalendarAlt,
@@ -49,8 +51,42 @@ const recommendedCourses = [
   },
 ];
 
+const AUTH_TOKEN_STORAGE_KEY = "narishakti_token";
+
 export default function LearnerDashboardPage() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const { user, setUser } = useAuth();
+
+  useEffect(() => {
+    const token = window.localStorage.getItem(AUTH_TOKEN_STORAGE_KEY);
+    if (!token) {
+      return;
+    }
+
+    const fetchCurrentUser = async () => {
+      try {
+        const response = await fetch("/api/auth", {
+          method: "GET",
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+
+        if (!response.ok) {
+          return;
+        }
+
+        const data = (await response.json()) as { user?: User };
+        if (data.user) {
+          setUser(data.user);
+        }
+      } catch {
+        return;
+      }
+    };
+
+    void fetchCurrentUser();
+  }, [setUser]);
 
   return (
     <div className="min-h-screen overflow-x-hidden bg-[#f3f3f6] text-slate-900">
@@ -74,7 +110,9 @@ export default function LearnerDashboardPage() {
           <Topbar onMenuClick={() => setIsSidebarOpen(true)} />
 
           <section className="mt-2">
-            <h1 className="text-3xl font-semibold text-slate-900 sm:text-4xl">Namaste, Kushu!</h1>
+            <h1 className="text-3xl font-semibold text-slate-900 sm:text-4xl">
+              Namaste, {user?.name ?? "Learner"}!
+            </h1>
             <p className="mt-1 text-slate-500">Ready to continue your journey today?</p>
           </section>
 
